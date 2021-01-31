@@ -31,4 +31,5 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
           coverageLocations: .coverage:coverage.py
+          coverageCommand: coverage report
           debug: true
