@@ -1,4 +1,4 @@
-name: Linter
+name: Code Quality Checks
 
 # Controls when the action will run.
 on: push
@@ -21,3 +21,14 @@ jobs:
 
       - name: linting
         run: make lint
+
+      - name: testing
+        run: make test
+
+      - name: coverage
+        uses: paambaati/codeclimate-action@v2.7.5
+        env:
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+        with:
+          coverageCommand: make coverage
+          debug: true
