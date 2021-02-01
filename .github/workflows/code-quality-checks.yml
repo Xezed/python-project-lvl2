@@ -19,10 +19,10 @@ jobs:
       - name: install dependencies
         run: make install
 
-      - name: linting
+      - name: run linter
         run: make lint
 
-      - name: testing
+      - name: run tests
         run: make test
 
       - name: upload coverage to Code Climate
@@ -30,5 +30,4 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: poetry run coverage xml
-          debug: true
+          coverageCommand: poetry run coverage xml # convert to xml
